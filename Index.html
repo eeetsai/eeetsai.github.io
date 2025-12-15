@@ -47,24 +47,40 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* 注意事項按鈕樣式 */
-        .tips-btn {
+        /* --- 修改：資訊 i Icon 按鈕樣式 --- */
+        .info-icon-btn {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.2);
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.15); /* 更通透的玻璃感 */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            padding: 8px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            font-family: "Times New Roman", serif; /* 使用襯線字體呈現經典 i */
+            font-style: italic;
+            font-weight: bold;
+            font-size: 1.3rem;
             cursor: pointer;
             z-index: 50;
             backdrop-filter: blur(4px);
-            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .tips-btn:hover {
+
+        .info-icon-btn:hover {
             background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+        
+        /* 為了讓 i 看起來置中更完美 */
+        .info-icon-btn span {
+            margin-right: 1px; 
+            margin-bottom: 1px;
         }
 
         .stars {
@@ -379,7 +395,7 @@
         .dot { width: 8px; height: 8px; background: #cbd5e1; border-radius: 50%; }
         .dot.active { background: var(--gold); transform: scale(1.2); }
 
-        /* --- 左右箭頭按鈕樣式 (新增) --- */
+        /* --- 左右箭頭按鈕樣式 --- */
         .tips-content {
             position: relative; 
         }
@@ -402,7 +418,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* 禁止選取文字，避免點擊時變藍色 */
             user-select: none;
         }
 
@@ -437,7 +452,8 @@
 <header>
     <div class="stars"></div>
     <div id="snow-container"></div>
-    <button class="tips-btn" onclick="openTipsModal(true)">⚠️ 注意事項</button>
+    
+    <button class="info-icon-btn" onclick="openTipsModal(true)"><span>i</span></button>
 
     <div class="illustration-wrapper">
         <div class="santa-hat-icon">🎅</div>
